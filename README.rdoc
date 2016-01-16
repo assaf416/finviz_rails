@@ -1,0 +1,31 @@
+= FinvizRails
+
+    gem 'finviz_rails', git: 'https://github.com/nemrow/finviz_rails.git'
+
+
+== To Use
+
+without finviz authentication (not finviz elite)
+
+    finviz = Finviz.new
+
+with authentication (using finviz elite)
+
+    finviz = Finviz.new(finviz_username, finviz_password)
+
+    // You can also set FINVIZ_USERNAME and FINVIZ_PASSWORD
+    // environment variables instead
+
+to screen stocks
+
+    finviz.screener(
+      pattern: "wedge",
+      order: "-change",
+      signal: "toplosers",
+      max_stock_count: 20
+    )
+
+avialable options:
+
+    price_range, analyst_recommendation, volotility,
+    average_volume, pattern, country, current_volume
