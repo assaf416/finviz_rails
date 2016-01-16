@@ -1,6 +1,7 @@
 class Screener
-  def initialize(agent, *params)
+  def initialize(agent, auth, *params)
     @agent = agent
+    @auth = auth
     @params = params.first
     @stocks = []
   end
@@ -11,7 +12,6 @@ class Screener
     add_stocks_from_page(@agent.page.parser)
     if @pagination_count
       (2..@pagination_count).each do |page_num|
-        byebug
         break if max_stock_count && @stocks.count >= max_stock_count
         @agent.get url(page_num)
         add_stocks_from_page(@agent.page.parser)
@@ -52,6 +52,6 @@ class Screener
   end
 
   def url(page=nil)
-    UrlFormatter.new(page, @params).run
+    UrlFormatter.new(@auth, page, @params).run
   end
 end

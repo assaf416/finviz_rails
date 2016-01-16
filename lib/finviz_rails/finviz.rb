@@ -8,15 +8,17 @@ class Finviz
     @username = ENV['FINVIZ_USERNAME'] || username
     @password = ENV['FINVIZ_PASSWORD'] || password
     login(username, password) if username && password
+    @auth = false
   end
 
   def screener(params)
-    Screener.new(agent, params).run
+    Screener.new(agent, @auth, params).run
   end
 
   private
 
   def login
+    @auth = true
     Login.new(username, password, agent)
   end
 

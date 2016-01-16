@@ -1,5 +1,6 @@
 class UrlFormatter
-  def initialize(page, params)
+  def initialize(auth, page, params)
+    @auth = auth
     @page = page
     @params = params
   end
@@ -32,6 +33,6 @@ class UrlFormatter
   end
 
   def base_url
-    "http://elite.finviz.com/screener.ashx?v=111"
+    "http://#{'elite.' if @auth}finviz.com/screener.ashx?v=111"
   end
 end
