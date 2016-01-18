@@ -1,14 +1,14 @@
 class FilterMapper
   def initialize(*params)
     @params = params.first
-    @string = ""
+    @param_components = []
   end
 
   def run
     mapper.each do |key, value|
-      @string << "#{value}_#{@params[key]}" if @params[key]
+      @param_components << "#{value}_#{@params[key]}" if @params[key]
     end
-    @string
+    @param_components.join("&")
   end
 
   private
