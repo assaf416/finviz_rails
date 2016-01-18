@@ -7,19 +7,19 @@ class Login
 
   def run
     go_to_login_page
-    form['email'] = username
-    form['password'] = password
+    form['email'] = @username
+    form['password'] = @password
     form.submit
-    agent
+    @agent
   end
 
   private
 
   def go_to_login_page
-    agent.get("http://finviz.com/login.ashx")
+    @agent.get("http://finviz.com/login.ashx")
   end
 
   def form
-    @form ||= agent.page.forms[1]
+    @form ||= @agent.page.forms[1]
   end
 end

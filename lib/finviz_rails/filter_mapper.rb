@@ -8,7 +8,7 @@ class FilterMapper
     mapper.each do |key, value|
       @param_components << "#{value}_#{@params[key]}" if @params[key]
     end
-    @param_components.join("&")
+    @param_components.join(",")
   end
 
   private

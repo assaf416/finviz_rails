@@ -4,22 +4,24 @@ require 'mechanize'
 class Finviz
   include HTTParty
 
+  attr_accessor :authenticated
+
   def initialize(username=nil, password=nil)
     @username = ENV['FINVIZ_USERNAME'] || username
     @password = ENV['FINVIZ_PASSWORD'] || password
-    login(username, password) if username && password
-    @auth = false
+    login if @username && @password
   end
 
   def screener(params)
-    Screener.new(agent, @auth, params).run
+    Screener.new(agent, @authenticated, params).run
   end
 
   private
 
+
   def login
-    @auth = true
-    Login.new(username, password, agent)
+    @authenticated = true
+    Login.new(@username, @password, agent).run
   end
 
   def agent

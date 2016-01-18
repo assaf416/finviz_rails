@@ -5,10 +5,11 @@ class FinvizRailsTest < ActiveSupport::TestCase
   test "non-auth screener get first page of data" do
     finviz = Finviz.new
     pp finviz.screener(
-      pattern: "wedge",
-      order: "-change",
-      signal: "toplosers",
-      max_stock_count: 20
+      price_range: "2to3",
+      analyst_recommendation: "strongbuy",
+      average_volume: "o50",
+      pattern: "wedgedown",
+      is_active: true
     )
   end
 end
