@@ -27,5 +27,5 @@ to screen stocks
 
 avialable options:
 
-    price_range, analyst_recommendation, volotility,
+    price_range, analyst_recommendation, volatility,
     average_volume, pattern, country, current_volume

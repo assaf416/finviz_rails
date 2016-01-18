@@ -17,7 +17,7 @@ class FilterMapper
     {
       price_range: "sh_price",
       analyst_recommendation: "an_recom",
-      volotility: "ta_volatility",
+      volatility: "ta_volatility",
       average_volume: "sh_avgvol",
       pattern: "ta_pattern",
       country: "geo",
