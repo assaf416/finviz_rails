@@ -9,6 +9,7 @@ class Screener
   def run
     @agent.get(url)
     set_pagination_count
+    set_found_stock_count
     add_stocks_from_page(@agent.page.parser)
     if @pagination_count
       (2..@pagination_count).each do |page_num|
@@ -17,10 +18,26 @@ class Screener
         add_stocks_from_page(@agent.page.parser)
       end
     end
-    @stocks
+    results
   end
 
   private
+
+  def results
+    {
+      found_stock_count: @found_stock_count,
+      returned_stock_count: @stocks.count,
+      stocks: @stocks
+    }
+  end
+
+  def set_found_stock_count
+    @found_stock_count = begin
+      text = @agent.page.parser.css('.count-text').text
+      match = text.match /Total: (\d+)/
+      match[1]
+    end
+  end
 
   def max_stock_count
     @params[:max_stock_count]
