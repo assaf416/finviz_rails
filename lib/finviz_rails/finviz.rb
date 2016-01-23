@@ -16,6 +16,10 @@ class Finviz
     Screener.new(agent, @authenticated, params).run
   end
 
+  def indices
+    Indices.new(agent, @authenticated).run
+  end
+
   private
 
 
