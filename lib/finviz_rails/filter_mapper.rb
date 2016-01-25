@@ -21,7 +21,10 @@ class FilterMapper
       average_volume: "sh_avgvol",
       pattern: "ta_pattern",
       country: "geo",
-      current_volume: "sh_curvol"
+      current_volume: "sh_curvol",
+      simple_moving_average_20_day: "ta_sma20",
+      simple_moving_average_50_day: "ta_sma50",
+      simple_moving_average_200_day: "ta_sma200"
     }
   end
 end
