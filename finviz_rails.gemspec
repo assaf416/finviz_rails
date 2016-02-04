@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = FinvizRails::VERSION
   s.authors     = ["Nemrow"]
   s.email       = ["nemrowj@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of FinvizRails."
-  s.description = "TODO: Description of FinvizRails."
+  s.homepage    = "https://github.com/nemrow/finviz_rails"
+  s.summary     = "Interact with Finviz Stock Screener through an API"
+  s.description = "Access many functions of the Finviz Screener through API acces"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
