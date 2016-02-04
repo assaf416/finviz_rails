@@ -17,7 +17,7 @@ class UrlFormatter
   private
 
   def url
-    @url ||= [base_url, signal, filters, order].join("&")
+    @url ||= [base_url, signal, filters, order, tickers].join("&")
   end
 
   def signal
@@ -30,6 +30,10 @@ class UrlFormatter
 
   def order
     "o=#{@params[:order]}"
+  end
+
+  def tickers
+    "t=#{@params[:tickers].join(',')}"
   end
 
   def base_url
