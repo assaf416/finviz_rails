@@ -33,7 +33,7 @@ class UrlFormatter
   end
 
   def tickers
-    "t=#{@params[:tickers].join(',')}"
+    "t=#{@params[:tickers].join(',') if @params[:tickers]}"
   end
 
   def base_url
