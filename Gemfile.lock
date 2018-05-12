@@ -4,7 +4,7 @@ PATH
     finviz_rails (0.0.1)
       httparty
       mechanize
-      rails (~> 4.2.5)
+      rails (~> 5.1.5)
 
 GEM
   remote: https://rubygems.org/
